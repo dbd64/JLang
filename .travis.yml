@@ -1,6 +1,4 @@
 language: java
-jdk:
-  - openjdk8
 
 # os: linux
 # dist: trusty
@@ -30,6 +28,10 @@ matrix:
       #         key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
 install: 
+  #Install azul JDK 7
+  - brew cask install caskroom/versions/zulu7
+  - export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home
+
   # Install llvm 5
   - brew install --force-bottle llvm@5
   - export PATH="/usr/local/opt/llvm@5/bin:$PATH"
