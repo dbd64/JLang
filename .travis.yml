@@ -28,11 +28,13 @@ matrix:
 
 install: 
   # Install Boehm GC
-  - curl http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz | tar -xz
+  - curl http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz | tar -x
   - cd gc-${BOEHM_VERSION}
   - ./configure && make && make install
 
-
+before_script:
+  - git lfs pull
+  
 script:
   - make
   - make tests
