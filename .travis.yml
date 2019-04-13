@@ -33,7 +33,6 @@ install:
   # # Install llvm 5
   # - brew install --force-bottle --with-clang llvm@5
   # Install Boehm GC
-  - sudo rm -r gc-${BOEHM_VERSION}
   - curl -OL http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
   - sudo tar -xzf gc-${BOEHM_VERSION}.tar.gz
   - cd gc-${BOEHM_VERSION}
