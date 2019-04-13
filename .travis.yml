@@ -32,6 +32,10 @@ matrix:
 install: 
   # # Install llvm 5
   # - brew install --force-bottle --with-clang llvm@5
+  
+  # Install libatomic_ops
+  - brew install libatomic_ops
+  
   # Install Boehm GC
   - curl -OL http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
   - sudo tar -xzf gc-${BOEHM_VERSION}.tar.gz
