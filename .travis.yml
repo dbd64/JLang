@@ -2,8 +2,10 @@ language: java
 jdk:
   - oraclejdk8
 
-os: linux
-dist: trusty
+# os: linux
+# dist: trusty
+
+ os: osx
 
 # cache:
 #   directories:
@@ -28,13 +30,13 @@ matrix:
 
 install: 
   # Install Boehm GC
-  - curl http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz | tar -x
+  - curl http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz | tar -xz
   - cd gc-${BOEHM_VERSION}
   - ./configure && make && make install
 
 before_script:
   - git lfs pull
-  
+
 script:
   - make
   - make tests
