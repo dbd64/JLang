@@ -32,7 +32,8 @@ matrix:
 install: 
   # Install llvm 5
   - brew install --force-bottle llvm@5
-  
+  - export PATH="/usr/local/opt/llvm@5/bin:$PATH"
+
   # Install git-lfs
   - brew install git-lfs
 
