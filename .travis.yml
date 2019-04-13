@@ -37,7 +37,7 @@ install:
   - brew install git-lfs
 
   # Install ant
-  brew install ant
+  - brew install ant
 
   # Install libatomic_ops
   - brew install libatomic_ops || brew upgrade libatomic_ops 
