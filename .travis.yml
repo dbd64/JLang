@@ -39,8 +39,9 @@ install:
   # Install git-lfs
   - brew install git-lfs
 
-  # Install ant
-  - brew install ant
+  # Install ant 1.9 
+  - brew install ant@1.9
+  - export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
 
   # Install libatomic_ops
   - brew install libatomic_ops || brew upgrade libatomic_ops 
