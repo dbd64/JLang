@@ -34,8 +34,8 @@ install:
   # - brew install --force-bottle --with-clang llvm@5
   # Install Boehm GC
   - curl -OL http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
-  - tar -xzf gc-${BOEHM_VERSION}.tar.gz -C gc-${BOEHM_VERSION}
-  - cd gc-${BOEHM_VERSION}
+  - sudo tar -xzf gc-${BOEHM_VERSION}.tar.gz -C gc
+  - cd gc
   - ./configure && make && make install
 
 before_script:
