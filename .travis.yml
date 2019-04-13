@@ -5,7 +5,7 @@ jdk:
 # os: linux
 # dist: trusty
 
- os: osx
+os: osx
 
 # cache:
 #   directories:
