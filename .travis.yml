@@ -7,28 +7,31 @@ jdk:
 
 os: osx
 
+# Clang 5.0
+compiler: clang
+osx_image: xcode9.4
+
 # cache:
 #   directories:
 #     - boehmgc
 
 matrix:
   include:
-    -env: 
-
-    # Clang 5.0
-    - env: CLANG_VERSION=5.0 BOEHM_VERSION=7.6.4
-      addons: &clang50
-        apt:
-          packages:
-            - clang-5.0
-            - libatomic-ops-dev
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-5.0
-            - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main'
-              key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
+    - env: BOEHM_VERSION=7.6.4
+      # addons: &clang50
+      #   apt:
+      #     packages:
+      #       - clang-5.0
+      #       - libatomic-ops-dev
+      #     sources:
+      #       - ubuntu-toolchain-r-test
+      #       - llvm-toolchain-trusty-5.0
+      #       - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main'
+      #         key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
 install: 
+  # # Install llvm 5
+  # - brew install --force-bottle --with-clang llvm@5
   # Install Boehm GC
   - curl -OL http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
   - tar -xzf gc-${BOEHM_VERSION}.tar.gz -C gc-${BOEHM_VERSION}
