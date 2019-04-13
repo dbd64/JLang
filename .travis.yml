@@ -36,7 +36,7 @@ install:
   - curl -OL http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
   - sudo tar -xzf gc-${BOEHM_VERSION}.tar.gz
   - cd gc-${BOEHM_VERSION}
-  - ./configure && make && make install
+  - sudo ./configure && make && make install
 
 before_script:
   - cd ${TRAVIS_BUILD_DIR}
