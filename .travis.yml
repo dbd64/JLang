@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk10
+  - openjdk7
 
 # os: linux
 # dist: trusty
