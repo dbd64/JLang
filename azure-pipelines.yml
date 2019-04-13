@@ -10,5 +10,15 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: "8"
+      jdkArchitectureOption: x64
+      jdkSourceOption: azureStorage
+      jdkDestinationDirectory: "/builds/binaries/externals"
+      cleanDestinationDirectory: true
+  displayName: 'Install Java 8'
+
+steps:
 - script: echo Java Home - $JAVA_HOME
   displayName: 'Echo Java Home'
