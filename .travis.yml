@@ -30,8 +30,8 @@ matrix:
       #         key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
 install: 
-  # # Install llvm 5
-  # - brew install --force-bottle --with-clang llvm@5
+  # Install llvm 5
+  - brew install --force-bottle --with-clang llvm@5
   
   # Install git-lfs
   - brew install git-lfs
