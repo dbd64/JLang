@@ -17,7 +17,7 @@ steps:
       jdkSourceOption: azureStorage
       jdkDestinationDirectory: "/builds/binaries/externals"
       cleanDestinationDirectory: true
-  displayName: 'Install Java 8'
+    displayName: 'Install Java 8'
 
 steps:
 - script: echo Java Home - $JAVA_HOME
