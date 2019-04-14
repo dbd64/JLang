@@ -59,7 +59,7 @@ install:
 before_script:
   - cd ${TRAVIS_BUILD_DIR}
   - git lfs pull
-  - jdk_switcher use oraclejdk8
+  - JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
   - echo JAVA_HOME - ${JAVA_HOME}
   - export JDK7=${JAVA_HOME}
 
