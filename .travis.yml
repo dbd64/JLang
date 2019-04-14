@@ -60,5 +60,5 @@ before_script:
   - export JDK7=${JAVA_HOME}
 
 script:
-  - sudo make
-  - sudo make tests
+  - sudo JDK7=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home make
+  - sudo JDK7=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home make tests
