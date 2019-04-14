@@ -78,11 +78,11 @@ before_script:
 
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
-      JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-      JDK7=$(/usr/libexec/java_home -v 1.7)
+      export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+      export JDK7=$(/usr/libexec/java_home -v 1.7)
     else
-      JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-      JDK7=$(/usr/libexec/java_home -v 1.8)
+      export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+      export JDK7=$(/usr/libexec/java_home -v 1.8)
     fi
 
 script:
