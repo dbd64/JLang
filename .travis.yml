@@ -7,7 +7,7 @@ os: osx
 
 # Clang 5.0
 compiler: clang
-osx_image: xcode9.4
+osx_image: xcode6.4
 
 cache:
   directories:
@@ -28,9 +28,9 @@ matrix:
       #         key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
 install: 
-  #Install azul JDK 7
-  - brew cask install caskroom/versions/zulu7
-  - export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home
+  # #Install azul JDK 7
+  # - brew cask install caskroom/versions/zulu7
+  # - export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home
 
   # Install llvm 5
   - brew install --force-bottle llvm@5
@@ -60,5 +60,5 @@ before_script:
   - export JDK7=${JAVA_HOME}
 
 script:
-  - sudo JDK7=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home make
-  - sudo JDK7=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home make tests
+  - make
+  - make tests
