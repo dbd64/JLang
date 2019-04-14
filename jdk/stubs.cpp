@@ -29,8 +29,7 @@ void Polyglot_java_lang_Enum_compareTo__Ljava_lang_Object_2() {
 
 void
 Java_java_io_FileSystem_getFileSystem(){
-    fprintf(stderr, "This method should not be called\n");
-    abort();
+    fprintf(stderr, "Java_java_io_FileSystem_getFileSystem\n");
 }
 
 } // extern "C"
