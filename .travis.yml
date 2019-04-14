@@ -20,7 +20,7 @@ addons:
       - llvm-toolchain-trusty-5.0
       - llvm-toolchain-trusty-6.0
     packages:
-      - clang-5.0 llvm-5.0 llvm-5.0-dev libllvm5.0 libstdc++6 libstdc++-5.0-dev libgcc-5.0-dev libobjc-5.0-dev libclang-common-5.0-dev libclang1-5.0 llvm-5.0-runtime libllvm5.0 libstdc++6 libllvm5.0
+      - clang-5.0 llvm-5.0 llvm-5.0-dev libllvm5.0 libstdc++6 libclang-common-5.0-dev libclang1-5.0 llvm-5.0-runtime libllvm5.0 libstdc++6 libllvm5.0
   # apt:
   #   sources:
   #   - sourceline: deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
