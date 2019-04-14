@@ -60,5 +60,5 @@ before_script:
   - export JDK7=${JAVA_HOME}
 
 script:
-  - make
-  - make tests
+  - sudo make
+  - sudo make tests
