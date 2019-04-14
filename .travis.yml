@@ -3,8 +3,9 @@ jdk:
   - oraclejdk8
 
 
+# When enabling linux, must use precise for oracle jdk 7
 # os: linux
-# dist: trusty
+# dist: precise
 
 os: osx
 compiler: clang
@@ -58,7 +59,8 @@ install:
 before_script:
   - cd ${TRAVIS_BUILD_DIR}
   - git lfs pull
-  - echo ${JAVA_HOME}
+  - jdk_switcher use oraclejdk8
+  - echo JAVA_HOME - ${JAVA_HOME}
   - export JDK7=${JAVA_HOME}
 
 script:
