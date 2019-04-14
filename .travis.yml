@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk7
+  - oraclejdk8
 
 
 # When enabling linux, must use precise for oracle jdk 7
@@ -61,7 +61,7 @@ before_script:
   - cd ${TRAVIS_BUILD_DIR}
   - git lfs pull
   - /usr/libexec/java_home -V
-  - JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+  - JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
   - echo JAVA_HOME - ${JAVA_HOME}
   - export JDK7=${JAVA_HOME}
 
