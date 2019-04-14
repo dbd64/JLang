@@ -30,6 +30,7 @@ matrix:
       #         key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
 
 install: 
+  - /usr/libexec/java_home -V
   # #Install azul JDK 7
   # - brew cask install caskroom/versions/zulu7
   # - export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-7.jdk/Contents/Home
@@ -59,6 +60,7 @@ install:
 before_script:
   - cd ${TRAVIS_BUILD_DIR}
   - git lfs pull
+  - /usr/libexec/java_home -V
   - JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
   - echo JAVA_HOME - ${JAVA_HOME}
   - export JDK7=${JAVA_HOME}
