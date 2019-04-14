@@ -2,17 +2,6 @@ language: java
 jdk:
   - oraclejdk8
 
-      # addons: &clang50
-      #   apt:
-      #     packages:
-      #       - clang-5.0
-      #       - libatomic-ops-dev
-      #     sources:
-      #       - ubuntu-toolchain-r-test
-      #       - llvm-toolchain-trusty-5.0
-      #       - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-5.0 main'
-      #         key_url: 'https://apt.llvm.org/llvm-snapshot.gpg.key'
-
 cache:
   directories:
     - /usr/local/Homebrew
@@ -47,23 +36,23 @@ install:
   - /usr/libexec/java_home -V
 
   - |
-  if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
-    
-  else
-    # Install llvm 5
-    # brew install --force-bottle llvm@5
-    export PATH="/usr/local/opt/llvm@5/bin:$PATH"
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      
+    else
+      # Install llvm 5
+      # brew install --force-bottle llvm@5
+      export PATH="/usr/local/opt/llvm@5/bin:$PATH"
 
-    # Install git-lfs
-    # brew install git-lfs
+      # Install git-lfs
+      # brew install git-lfs
 
-    # Install ant 1.9 
-    # brew install ant@1.9
-    export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
+      # Install ant 1.9 
+      # brew install ant@1.9
+      export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
 
-    # Install libatomic_ops
-    # brew install libatomic_ops || brew upgrade libatomic_ops     
-  fi
+      # Install libatomic_ops
+      # brew install libatomic_ops || brew upgrade libatomic_ops     
+    fi
   
   # Install Boehm GC
   - curl -OL http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
