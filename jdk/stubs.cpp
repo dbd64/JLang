@@ -2,6 +2,7 @@
 // missing for various (usually unknown) reasons.
 #include <cstdio>
 #include <cstdlib>
+#include <execinfo.h>
 #include "jni.h"
 
 extern "C" {
@@ -30,6 +31,13 @@ void Polyglot_java_lang_Enum_compareTo__Ljava_lang_Object_2() {
 void
 Java_java_io_FileSystem_getFileSystem(){
     fprintf(stderr, "Java_java_io_FileSystem_getFileSystem\n");
+    
+    constexpr int max_frames = 256;
+    void* callstack[max_frames];
+    int frames = backtrace(callstack, max_frames);
+    backtrace_symbols_fd(callstack, frames, fileno(stderr));
+    
+    abort();
 }
 
 } // extern "C"
