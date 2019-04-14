@@ -16,8 +16,11 @@ addons:
     - ant@1.9
     - libatomic_ops
   apt:
+    sources:
+    - sourceline: deb http://llvm.org/apt/precise/ llvm-toolchain-precise main
+      key_url: http://llvm.org/apt/llvm-snapshot.gpg.key
     packages:
-    - llvm-toolchain-trusty-5.0
+    - clang-5 llvm-5 llvm-5-dev
     # - ant=1.9
     # - libatomic_ops
 
