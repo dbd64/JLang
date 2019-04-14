@@ -27,9 +27,4 @@ void Polyglot_java_lang_Enum_compareTo__Ljava_lang_Object_2() {
     abort();
 }
 
-void _JVM_GetClassTypeAnnotations(){
-    fprintf(stderr, "This method should not be called\n");
-    abort();
-}
-
 } // extern "C"
