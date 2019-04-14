@@ -18,8 +18,8 @@ addons:
   apt:
     packages:
     - llvm-toolchain-trusty-5.0
-    - ant=1.9
-    - libatomic_ops
+    # - ant=1.9
+    # - libatomic_ops
 
 
 
