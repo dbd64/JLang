@@ -40,7 +40,7 @@ install:
 
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
-      
+      echo LINUX
     else
       # Install llvm 5
       # brew install --force-bottle llvm@5
