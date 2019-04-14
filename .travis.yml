@@ -17,12 +17,17 @@ addons:
     - libatomic_ops
   apt:
     sources:
-    - sourceline: deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
-      key_url: http://llvm.org/apt/llvm-snapshot.gpg.key
+      - llvm-toolchain-trusty-5.0
     packages:
-    - clang-5 llvm-5 llvm-5-dev
-    # - ant=1.9
-    # - libatomic_ops
+      - clang-5.0 llvm-5.0 llvm-5.0-dev
+  # apt:
+  #   sources:
+  #   - sourceline: deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
+  #     key_url: http://llvm.org/apt/llvm-snapshot.gpg.key
+  #   packages:
+  #   - clang-5 llvm-5 llvm-5-dev
+  #   # - ant=1.9
+  #   # - libatomic_ops
 
 
 
@@ -69,11 +74,21 @@ before_script:
   - cd ${TRAVIS_BUILD_DIR}
   - git lfs pull
   - /usr/libexec/java_home -V
-  - JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-  - echo JAVA_HOME - ${JAVA_HOME}
-  - export JDK7=${JAVA_HOME}
+
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+      JDK7=$(/usr/libexec/java_home -v 1.7)
+    else
+      JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+      JDK7=$(/usr/libexec/java_home -v 1.8)
+    fi
 
 script:
-  - make
-  # Tests currently do not work
-  # - make tests
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      make
+      make tests
+    else
+      make
+    fi
