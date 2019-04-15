@@ -74,6 +74,7 @@ before_script:
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       export JDK7=/usr/lib/jvm/java-7-oracle
+      export CLANG_VERSION=5.0
     else
       /usr/libexec/java_home -V
       export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
