@@ -24,16 +24,6 @@ addons:
     packages:
       - clang-5.0 llvm-5.0 llvm-5.0-dev libllvm5.0 libstdc++6 libclang-common-5.0-dev libclang1-5.0 llvm-5.0-runtime libllvm5.0 libstdc++6 libllvm5.0
       - libatomic-ops-dev
-  # apt:
-  #   sources:
-  #   - sourceline: deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
-  #     key_url: http://llvm.org/apt/llvm-snapshot.gpg.key
-  #   packages:
-  #   - clang-5 llvm-5 llvm-5-dev
-  #   # - ant=1.9
-  #   # - libatomic_ops
-
-
 
 matrix:
   include:
@@ -50,8 +40,8 @@ install:
       echo LINUX
 
       # Install git lfs
-      wget https://packagecloud.io/github/git-lfs/packages/ubuntu/precise/git-lfs_2.7.1_i386.deb
-      sudo dpkg -i git-lfs_2.7.1_i386.deb
+      wget https://packagecloud.io/github/git-lfs/packages/ubuntu/precise/git-lfs_2.7.1_amd64.deb
+      sudo dpkg -i git-lfs_2.7.1_amd64.deb
 
     else
       /usr/libexec/java_home -V
