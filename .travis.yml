@@ -43,12 +43,12 @@ matrix:
       dist: precise
 
 install: 
-  - /usr/libexec/java_home -V
-
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       echo LINUX
     else
+      /usr/libexec/java_home -V
+
       # Install llvm 5
       # brew install --force-bottle llvm@5
       export PATH="/usr/local/opt/llvm@5/bin:$PATH"
