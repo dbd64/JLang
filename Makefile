@@ -93,7 +93,7 @@ jdk: compiler runtime
 
 polyglot: | $(SUBMODULES)
 	@echo "--- Building Polyglot ---"
-	@cd $(POLYGLOT); ant -S jar
+	@cd $(POLYGLOT); ant -s jar
 	@echo
 
 $(SUBMODULES):
