@@ -43,12 +43,6 @@ install:
       curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
       sudo apt-get install git-lfs
 
-      # Install ant 1.9
-      wget https://www-us.apache.org/dist//ant/binaries/apache-ant-1.9.14-bin.tar.gz
-      sudo tar -xzf apache-ant-1.9.14-bin.tar.gz
-      sudo ln -s apache-ant-1.9.7/ /usr/local/ant
-      export ANT_HOME=/usr/local/ant
-      export PATH=${ANT_HOME}/bin:${PATH}
     else
       /usr/libexec/java_home -V
 
@@ -56,9 +50,21 @@ install:
       export PATH="/usr/local/opt/llvm@5/bin:$PATH"
 
       # Install ant 1.9 
-      export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
     fi
   
+  # Install ant 1.9
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      wget https://www-us.apache.org/dist//ant/binaries/apache-ant-1.9.14-bin.tar.gz
+      sudo tar -xzf apache-ant-1.9.14-bin.tar.gz
+      sudo ln -s apache-ant-1.9.14/ /usr/local/ant
+      export ANT_HOME=/usr/local/ant
+      export PATH=${ANT_HOME}/bin:${PATH}
+      echo ${ANT_HOME}
+    else
+      export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
+    fi
+
   # Install Boehm GC
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
