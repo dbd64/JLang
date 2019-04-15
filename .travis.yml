@@ -24,7 +24,6 @@ addons:
     packages:
       - clang-5.0 llvm-5.0 llvm-5.0-dev libllvm5.0 libstdc++6 libclang-common-5.0-dev libclang1-5.0 llvm-5.0-runtime libllvm5.0 libstdc++6 libllvm5.0
       - libatomic-ops-dev
-      - git-lfs
   # apt:
   #   sources:
   #   - sourceline: deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
@@ -49,26 +48,22 @@ install:
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       echo LINUX
+
+      # Install git lfs
+      wget https://packagecloud.io/github/git-lfs/packages/ubuntu/precise/git-lfs_2.7.1_i386.deb
+      sudo dpkg -i git-lfs_2.7.1_i386.deb
+
     else
       /usr/libexec/java_home -V
 
       # Install llvm 5
-      # brew install --force-bottle llvm@5
       export PATH="/usr/local/opt/llvm@5/bin:$PATH"
 
-      # Install git-lfs
-      # brew install git-lfs
-
       # Install ant 1.9 
-      # brew install ant@1.9
       export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
-
-      # Install libatomic_ops
-      # brew install libatomic_ops || brew upgrade libatomic_ops     
     fi
   
   # Install Boehm GC
-  - 
   - |
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       wget http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
