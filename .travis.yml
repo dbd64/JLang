@@ -23,6 +23,7 @@ addons:
     packages:
       - clang-5.0 llvm-5.0 llvm-5.0-dev libllvm5.0 libstdc++6 libclang-common-5.0-dev libclang1-5.0 llvm-5.0-runtime libllvm5.0 libstdc++6 libllvm5.0
       - libatomic-ops-dev
+      - git-lfs
   # apt:
   #   sources:
   #   - sourceline: deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty main
