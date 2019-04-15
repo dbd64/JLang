@@ -61,6 +61,7 @@ install:
       export ANT_HOME=/usr/local/ant
       export PATH=${ANT_HOME}/bin:${PATH}
       echo ${ANT_HOME}
+      ant -version
     else
       export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
     fi
