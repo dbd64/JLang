@@ -66,6 +66,13 @@ install:
   
   # Install Boehm GC
   - curl -OL http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      sudo tar -xfvw gc-${BOEHM_VERSION}.tar.gz
+    else
+      sudo tar -xzf gc-${BOEHM_VERSION}.tar.gz
+    fi
+
   - sudo tar -xzf gc-${BOEHM_VERSION}.tar.gz
   - cd gc-${BOEHM_VERSION}
   - sudo ./configure 
