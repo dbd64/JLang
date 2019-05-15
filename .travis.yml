@@ -94,6 +94,7 @@ before_script:
       export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
       export JDK7=$(/usr/libexec/java_home -v 1.8)
       export JDK=jdk
+      ls /Library/Java/JavaVirtualMachines/
     fi
 
 script:
