@@ -97,9 +97,5 @@ before_script:
 
 script:
   - |
-    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       make
       make tests
-    else
-      make
-    fi
