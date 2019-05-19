@@ -57,10 +57,7 @@ install:
     if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
       wget https://www-us.apache.org/dist//ant/binaries/apache-ant-1.9.14-bin.tar.gz
       sudo tar -xzf apache-ant-1.9.14-bin.tar.gz
-      sudo ln -s apache-ant-1.9.14/ /usr/local/ant
-      export ANT_HOME=/usr/local/ant
-      export PATH=${ANT_HOME}/bin:${PATH}
-      echo ${ANT_HOME}
+      export PATH=$(pwd)/apache-ant-1.9.14/bin:${PATH}
       ant -version
     else
       export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
@@ -99,7 +96,7 @@ before_script:
 
 script:
   - |
-      env
       make
-      env
-      make tests
+      if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+        make tests
+      fi
