@@ -19,10 +19,6 @@ JDK_CLASSES := $(realpath $(JDK)/out/classes)
 JDK7 ?= /Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/
 endif
 
-ifeq ($(TRAVIS),"true")
-ADDITIONAL_JLANGC_OPTIONS:=-compiler-classpath $(BASE_DIR)/lib/llvm-linux-x86_64-Ubuntu12.04.jar
-endif
-
 SRC := $(shell find * -name "*.java")
 
 CLASSES := $(SRC:.java=.class)
