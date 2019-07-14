@@ -13,7 +13,7 @@ SUBMODULES := $(addsuffix .git,$(POLYGLOT) $(JAVACPP_PRESETS))
 
 # Setup variables for travis CI
 ifeq ($(TRAVIS),"true")
-ADDITIONAL_JLANGC_OPTIONS:=-compiler-classpath $(BASE_DIR)/lib/llvm-linux-x86_64-Ubuntu12.04.jar
+ADDITIONAL_JLANGC_OPTIONS:=-compiler-classpath $(realpath lib/llvm-linux-x86_64-Ubuntu12.04.jar)
 endif
 
 # JLang
