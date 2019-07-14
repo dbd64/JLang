@@ -15,6 +15,7 @@ addons:
     - git-lfs
     - ant@1.9
     - libatomic_ops
+    update: true
   apt:
     sources:
       - llvm-toolchain-trusty-5.0

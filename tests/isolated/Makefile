@@ -19,6 +19,10 @@ JDK_CLASSES := $(realpath $(JDK)/out/classes)
 JDK7 ?= /Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/
 endif
 
+ifeq ($(TRAVIS),"true")
+ADDITIONAL_JLANGC_OPTIONS:=-compiler-classpath $(BASE_DIR)/lib/llvm-linux-x86_64-Ubuntu12.04.jar
+endif
+
 SRC := $(shell find * -name "*.java")
 
 CLASSES := $(SRC:.java=.class)
@@ -69,12 +73,12 @@ $(SOL): $(SRC)
 
 $(LL): $(SRC)
 	@echo "Compiling $(words $?) Java file(s) down to LLVM IR"
-	@$(BASE_DIR)/bin/jlangc -cp $(JDK_CLASSES) -assert $?
+	@$(BASE_DIR)/bin/jlangc $(ADDITIONAL_JLANGC_OPTIONS) -cp $(JDK_CLASSES) -assert $?
 	@touch $(LL)
 
 %.ll: %.java
 	@echo "Compiling file to LLVM IR"
-	@$(BASE_DIR)/bin/jlangc -cp $(JDK_CLASSES) -assert $?
+	@$(BASE_DIR)/bin/jlangc $(ADDITIONAL_JLANGC_OPTIONS) -cp $(JDK_CLASSES) -assert $?
 
 %.binary: %.ll
 	@echo "Creating binary for $<"
