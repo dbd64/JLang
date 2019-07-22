@@ -44,8 +44,6 @@ $(NATIVE_OBJ): $(OUT)/%.o: %.cpp
 # Runtime Java IR (.java --> .ll)
 $(LL_STAMP): $(CLS_STAMP) $(PLC_SRC)
 	@echo "Compiling $(words $(JAVA_SRC)) Java files with JLang (.java --> .ll)"
-	@echo $(ADDITIONAL_JLANGC_OPTIONS)
-	@echo $(PLC)
 	@$(PLC) -cp $(JDK_CLASSES) -c -d $(OUT) $(JAVA_SRC)
 	@date > $@
 
