@@ -21,7 +21,7 @@ endif
 
 # Setup variables for travis CI
 ifdef TRAVIS
-ADDITIONAL_JLANGC_OPTIONS:=-compiler-classpath $(realpath lib/llvm-linux-x86_64-Ubuntu12.04.jar)
+ADDITIONAL_JLANGC_OPTIONS:=-compiler-classpath $(realpath $(BASE_DIR)/lib/llvm-linux-x86_64-Ubuntu12.04.jar)
 endif
 
 SRC := $(shell find * -name "*.java")
