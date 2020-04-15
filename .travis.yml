@@ -6,12 +6,13 @@ cache:
   directories:
     - /usr/local/Homebrew
 
-env: BOEHM_VERSION=7.6.4
+env: 
+  - BOEHM_VERSION=7.6.4
+  - LLVM_VERSION=5.0.2
 
 addons:
   homebrew:
     packages:
-    - llvm@5
     - git-lfs
     - ant@1.9
     - libatomic_ops
@@ -51,8 +52,10 @@ install:
       wget http://www.hboehm.info/gc/gc_source/gc-${BOEHM_VERSION}.tar.gz
       sudo tar -xzf gc-${BOEHM_VERSION}.tar.gz
     else
-      # Add llvm 5 to the path
-      export PATH="/usr/local/opt/llvm@5/bin:$PATH"
+      # Download llvm 5 and setup path
+      curl -OL https://releases.llvm.org/${LLVM_VERSION}/clang+llvm-${LLVM_VERSION}-x86_64-apple-darwin.tar.xz
+      sudo tar -xzf clang+llvm-${LLVM_VERSION}-x86_64-apple-darwin.tar.xz
+      export PATH=$(pwd)/clang+llvm-${LLVM_VERSION}-x86_64-apple-darwin/bin:${PATH}
 
       #Add ant 1.9 to the path
       export PATH="/usr/local/opt/ant@1.9/bin:$PATH"
