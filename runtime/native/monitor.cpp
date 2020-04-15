@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <unordered_map>
 #include <pthread.h>
+#include <time.h>
 
 #define GC_THREADS
 #include <gc.h>
